@@ -25,20 +25,17 @@ list_node * create_linklist(int arr[],int size){
     return head;
 
 }
+void print_linklist(list_node *head){
+    for(list_node *visitor = head; visitor != nullptr; visitor  = visitor -> next){
+        std::cout << visitor -> value << " ";
+    }
+}
 
 int main(){
     int array[] = {1,3,5,7,9,11,13,15};
     int size = sizeof(array)/sizeof(array[0]);
-    //在函数外部对全局数组使用 sizeof 时，返回整个数组的大小。
-    //在函数内部对数组参数使用 sizeof 时，返回指针的大小，而不是数组本身的大小。
     list_node *head = create_linklist(array,size);
-
-    for(list_node *visitor = head; visitor != nullptr; visitor  = visitor -> next){
-        std::cout << visitor -> value << " ";
-    }
-
-
-
-
+    print_linklist(head);
+    
     return 0;
 }
